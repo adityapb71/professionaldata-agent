@@ -1,40 +1,4 @@
 {
   "type": "module"
 }
-```
 
-**HANYA 3 BARIS ITU!** Simpel!
-
----
-
-### **STEP 4: Commit**
-
-**Scroll down** → **Commit new file**
-
----
-
-### **STEP 5: Wait 1-2 Minutes**
-
-Vercel auto-deploy dengan config baru.
-
----
-
-### **STEP 6: Test**
-```
-https://professionaldata-agent-tl6e.vercel.app/.well-known/agent.json
-```
-
-**Harusnya WORK sekarang!** ✅
-
----
-
-## **📋 STRUCTURE SETELAH FIX:**
-```
-professionaldata-agent/
-├── api/
-│   ├── agent.js
-│   ├── health.js
-│   ├── mcp.js
-│   └── openapi.js
-├── package.json      ← FILE BARU INI!
-└── vercel.json
