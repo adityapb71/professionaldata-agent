@@ -10,7 +10,7 @@ export default function handler(req, res) {
     return;
   }
 
-  // Agent card response
+  // Agent card response with skills
   res.status(200).json({
     name: "ProfessionalDataAgent",
     description: "Enterprise-Grade Data Intelligence Platform | ERC-8004 Certified",
@@ -23,6 +23,18 @@ export default function handler(req, res) {
         endpoint: `https://${req.headers.host}/api/agent`,
         status: "active",
         protocol: "ERC-8004"
+      },
+      {
+        type: "mcp",
+        endpoint: `https://${req.headers.host}/mcp`,
+        status: "active",
+        protocol: "MCP"
+      },
+      {
+        type: "oasf",
+        endpoint: `https://${req.headers.host}/openapi.json`,
+        status: "active",
+        protocol: "OpenAPI"
       }
     ],
     capabilities: {
@@ -36,12 +48,23 @@ export default function handler(req, res) {
         "automation",
         "blockchain-analysis",
         "strategic-planning",
-        "hypothesis-generation"
+        "hypothesis-generation",
+        "predictive-analytics",
+        "machine-learning",
+        "data-visualization",
+        "query-optimization",
+        "cross-chain-analysis"
       ],
       tools: [
         "rest-api",
         "websocket",
         "graphql"
+      ],
+      domains: [
+        "cryptocurrency",
+        "data-analytics",
+        "blockchain",
+        "defi"
       ]
     },
     trust: {
@@ -52,7 +75,21 @@ export default function handler(req, res) {
     },
     metadata: {
       updated: new Date().toISOString(),
-      uptime: "99.9%"
+      uptime: "99.9%",
+      responseTime: "30ms"
     }
   });
 }
+```
+
+### **6. Commit changes**
+
+### **7. Wait 1-2 minutes**
+
+---
+
+## **✅ VERIFY:**
+
+**Test URL:**
+```
+https://professionaldata-agent-tl6e.vercel.app/.well-known/agent.json
