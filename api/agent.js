@@ -1,16 +1,13 @@
 export default function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   
-  // Handle OPTIONS request
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
   }
 
-  // Agent card response with skills
   res.status(200).json({
     name: "ProfessionalDataAgent",
     description: "Enterprise-Grade Data Intelligence Platform | ERC-8004 Certified",
@@ -20,19 +17,19 @@ export default function handler(req, res) {
     services: [
       {
         type: "a2a",
-        endpoint: `https://${req.headers.host}/api/agent`,
+        endpoint: "https://" + req.headers.host + "/api/agent",
         status: "active",
         protocol: "ERC-8004"
       },
       {
         type: "mcp",
-        endpoint: `https://${req.headers.host}/mcp`,
+        endpoint: "https://" + req.headers.host + "/mcp",
         status: "active",
         protocol: "MCP"
       },
       {
         type: "oasf",
-        endpoint: `https://${req.headers.host}/openapi.json`,
+        endpoint: "https://" + req.headers.host + "/openapi.json",
         status: "active",
         protocol: "OpenAPI"
       }
@@ -82,14 +79,22 @@ export default function handler(req, res) {
 }
 ```
 
-### **6. Commit changes**
-
-### **7. Wait 1-2 minutes**
+**KEY CHANGE:** Ganti backtick template literals jadi string concatenation (`+`) karena mungkin backtick bermasalah.
 
 ---
 
-## **✅ VERIFY:**
+### **STEP 3: Commit changes**
 
-**Test URL:**
+**Scroll down → "Commit changes"**
+
+---
+
+### **STEP 4: Wait 1-2 minutes**
+
+Auto-deploy akan jalan.
+
+---
+
+### **STEP 5: Test URL**
 ```
 https://professionaldata-agent-tl6e.vercel.app/.well-known/agent.json
